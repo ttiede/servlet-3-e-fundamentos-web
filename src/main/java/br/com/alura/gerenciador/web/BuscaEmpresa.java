@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador;
+package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 @WebServlet(urlPatterns="/busca")
