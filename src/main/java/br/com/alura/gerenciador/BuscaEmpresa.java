@@ -2,12 +2,15 @@ package br.com.alura.gerenciador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 @WebServlet(urlPatterns="/busca")
 public class BuscaEmpresa extends HttpServlet {
@@ -18,6 +21,13 @@ public class BuscaEmpresa extends HttpServlet {
 			writer.println("<html>");
 			writer.println("<body>");
 			writer.println("Resultado da busca:<br/>");
+			writer.println("<ul>");
+			String parameters = req.getParameter("filtro");
+			Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(parameters);
+			for(Empresa empresa : empresas) {
+			  writer.println("<li>" + empresa.getId() + ": " + empresa.getNome() + "</li>");
+			}
+			writer.println("</ul>");
 			writer.println("</body>");
 			writer.println("</html>");
 
