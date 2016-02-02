@@ -16,6 +16,7 @@ import br.com.alura.gerenciador.dao.EmpresaDAO;
 public class NovaEmpresa extends HttpServlet {
 	
 	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException {
 			String nome = req.getParameter("nome");
