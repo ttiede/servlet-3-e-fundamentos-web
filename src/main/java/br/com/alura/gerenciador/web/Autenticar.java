@@ -28,7 +28,9 @@ public class Autenticar extends HttpServlet {
 	        Usuario usuario = new UsuarioDAO().buscaPorEmailESenha(email, senha);
 	        if (usuario != null) {
 	        	Cookie cookie = new Cookie("usuario.logado", email);
-	            
+	            cookie.setMaxAge(60 * 10); // 10 * 60 segundos, são dez minutos
+	            resp.addCookie(cookie);
+
 	        	writer.println("<html><body>Usuário logado: " + email
                     + "</body></html>");
 	        }
