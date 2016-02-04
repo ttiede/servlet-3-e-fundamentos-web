@@ -41,4 +41,13 @@ public class FiltroDeAuditoria implements Filter{
                  + req.getRequestURI());
          chain.doFilter(request, response);
     }
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain req) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

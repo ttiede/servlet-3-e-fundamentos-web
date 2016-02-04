@@ -8,7 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-public interface Filter{
+public interface Filter extends javax.servlet.Filter {
 
 	void destroy();
 
@@ -17,5 +17,8 @@ public interface Filter{
 	void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain, HttpServletResponse resp) throws IOException,
 			ServletException;
+	
+	void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain req) throws IOException, ServletException;
 		
 }
