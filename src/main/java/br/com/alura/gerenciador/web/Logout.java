@@ -10,22 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.Usuario;
+import br.com.alura.gerenciador.dao.UsuarioDAO;
 import br.com.alura.gerenciador.system.Cookies;
 
 @WebServlet(urlPatterns="/logout")
 public class Logout extends HttpServlet {
 
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException {
     	Cookie cookie = new Cookies(req.getCookies()).getUsuarioLogado();
-    	if (cookie != null){
+    	String usuario = "<deslogado>";        
+        if (cookie != null){
         	cookie.setMaxAge(0);
         	resp.addCookie(cookie);
         }
