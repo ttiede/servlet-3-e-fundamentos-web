@@ -3,9 +3,7 @@
 	<h2>Bem vindo ao nosso gerenciador de empresas!</h2>
 	<br />
 	<c:if test="${not empty usuarioLogado}">
-        Você está logado como:
-        <c:out value="${sessionScope.usuarioLogado.getEmail()}" />
-        <br />
+	Logado como ${usuarioLogado.email}<br />
 	</c:if>
 
 	<form action="login" method="post">
