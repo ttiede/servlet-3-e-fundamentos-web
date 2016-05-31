@@ -1,23 +1,26 @@
 <html>
 <body>
-	<h2>Bem vindo ao nosso gerenciador de empresas!</h2><br/>
-    <c:if test="${not empty usuarioLogado}">
-        VocÃª estÃ¡ logado como ${usuarioLogado.email}<br/>
-    </c:if>	
+	<h2>Bem vindo ao nosso gerenciador de empresas!</h2>
+	<br />
+	<c:if test="${not empty usuarioLogado}">
+        Você está logado como:
+        <c:out value="${sessionScope.usuarioLogado.getEmail()}" />
+        <br />
+	</c:if>
 
 	<form action="login" method="post">
-    	Email: <input type="text" name="email" /><br/>
-    	Senha: <input type="password" name="senha" /><br/>
-    	<input type="submit" value="Login" />
-	</form>
-	
-	<form action="novaEmpresa" method="POST">
-	 	Nome: <input type="text" name="nome" /><br/> 
-		<input type="submit" value="Enviar" /> 
+		Email: <input type="text" name="email" /><br /> Senha: <input
+			type="password" name="senha" /><br /> <input type="submit"
+			value="Login" />
 	</form>
 
-	<form action="logout" method="post">
-    	<input type="submit" value="Logout" />
+	<form action="pagina?tarefa=NovaEmpresa" method="post">
+		Nome: <input type="text" name="nome" /><br /> <input type="submit"
+			value="Enviar" />
+	</form>
+
+	<form action="pagina?tarefa=Logout" method="post">
+		<input type="submit" value="Logout" />
 	</form>
 
 </body>
